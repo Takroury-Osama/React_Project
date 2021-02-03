@@ -1,0 +1,16 @@
+.buttonStyle {
+    background-color: #f1f1f1;
+    font-size: 20px;
+    color: #E75B00;
+    border: 2px solid #E75B00;
+    border-radius: 5px;
+  }
+
+  .buttonStyle:hover {
+    background-color: #E75B00;
+    color: #f1f1f1;
+  }
+
+  h2 span {
+    color: #E75B00;
+  }

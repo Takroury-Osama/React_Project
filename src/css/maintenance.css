@@ -1,0 +1,39 @@
+.squareDiv {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin-bottom: 0;
+    background-color: #fff;
+  }
+  @media (min-width: 768px) {
+    .squareDiv {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  .squareDiv p:last-child {
+    margin-bottom: 0;
+  }
+
+  .squareDiv h1 {
+    font-weight: 300;
+  }
+
+  .squareDiv .container {
+    max-width: 40rem;
+  }
+.boldFont {
+font-weight: 700
+}
+
+.hover12 figure {
+background: #1abc9c;
+}
+.hover12 figure img {
+opacity: 1;
+-webkit-transition: .3s ease-in-out;
+transition: .3s ease-in-out;
+}
+.hover12 figure:hover img {
+opacity: .9;
+}
