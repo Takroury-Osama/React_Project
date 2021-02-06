@@ -46,6 +46,7 @@ useEffect(() => {
 <tbody>
     {Booking.length? Booking.map(booking =>
       <tr>
+      
         <td>{booking.FullName}</td>
         <td>{booking.Email}</td>
         <td>{booking.Phone}}</td>
