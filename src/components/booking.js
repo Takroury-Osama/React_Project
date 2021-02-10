@@ -38,6 +38,7 @@ validateForm = () => {
 }
 
     submitForm = (event) => {
+      event.preventDefault()
       if(this.validateForm()) {
 
         axios.post('http://localhost:4000/booking', this.state)

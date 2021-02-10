@@ -1,19 +1,56 @@
-import react, {Component} from 'react'
+import react , {useState, useEffect} from 'react'
+import axios from 'axios'
 import Button from '@material-ui/core/Button';
 import {EmojiTransportation, LocationOn, Call} from '@material-ui/icons/';
-import jeep from '../img/jeep.jpg'
-import mazda from '../img/mazda.png'
-import nissan from '../img/nissan.png'
+import toyota from '../img/toyota.png'
+import bmw from '../img/bmw.png'
+import mercedes from '../img/mercedes.png'
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
 
 
- class Consultation extends Component {
 
-  constructor(props) {
-    super(props)
 
-    }
+   const Consultaion = () => {
+     let [Consultaion, setConsultation] = useState([])
 
-    render() {
+     // getCompany = () => {
+     //     axios.get('http://localhost:4000/companies')
+     //     .then(res => {
+     //       console.log(res);
+     //       this.setState({Company: res.data})
+     //       //console.log(res.ID);
+     //
+     //     })
+     //     .catch(err => {
+     //       console.log(err);
+     //       this.setState({ErrorMsg:"couldnt get data"})
+     //     })
+     //   }
+     // }
+
+     function onClick() {
+       alert('clicked')
+     }
+
+     useEffect(() => {
+       axios.get('http://localhost:4000/companies')
+           .then((res) => {
+             console.log(res.data);
+             setConsultation(res.data)
+           })
+           .catch((err) => {
+             console.log(err);
+           })
+         },[0]);
+
       return(
         <main role="main">
     <section className="squareDiv text-center">
@@ -26,63 +63,35 @@ import nissan from '../img/nissan.png'
 
       </div>
     </section>
-    <div class="album py-5 bg-light">
-        <div class="container">
-          <h2 class="text-center">Consultation Team</h2>
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <img class="bd-placeholder-img card-img-top" width="100%" height="225" src={jeep} alt=""/>
-                <div class="card-body">
-                  <p class="card-text"><EmojiTransportation /> T. Gargour</p>
-                  <p class="card-text"><LocationOn /> Amman - Wadi As-Seir</p>
-                  <p class="card-text"><Call /> 00962 7 1234567</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="window.open('tel:0096271234567');">Call Now</button>
+    <div className="album py-5 bg-light">
+        <div className="container">
+          <h2 className="text-center">Maintenace Team</h2>
+        </div>
+        <div className="container">
+          <div className="row">
+          { Consultaion.length? Consultaion.map(consultaion =>
+            <div className="col-lg-4 col-md-6" key={consultaion._id}>
+              <div className="card mb-4 shadow-sm">
+                <img className="bd-placeholder-img card-img-top" width="100%" height="225" src={mercedes} alt=""/>
+                  <div className="card-body">
+                    <p className="card-text"><EmojiTransportation /> {consultaion.name}</p>
+                    <p className="card-text"><LocationOn />{consultaion.location}</p>
+                    <p className="card-text"><Call />{consultaion.phone}  </p>
+                    <div className="d-flex justify-content-between align-items-center">
+                    <div className="btn-group">
+                      <button type="button" className="btn btn-sm btn-outline-secondary" onClick={onClick}>Call Now</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <img class="bd-placeholder-img card-img-top" width="100%" height="225" src={mazda} alt=""/>
-                <div class="card-body">
-                  <p class="card-text"><EmojiTransportation /> A-Makrkazyah </p>
-                  <p class="card-text"><LocationOn /> Amman - Al-madina Almunwarah</p>
-                  <p class="card-text"><Call /> 00962 7 1234567</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="window.open('tel:0096271234567');">Call Now</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <img class="bd-placeholder-img card-img-top" width="100%" height="225" src={nissan}alt=""/>
-                <div class="card-body">
-                  <p class="card-text"><EmojiTransportation /> Abo-Haikal </p>
-                  <p class="card-text"><LocationOn /> Amman - Wadi As-Seir</p>
-                  <p class="card-text"><Call /> 00962 7 1234567</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="window.open('tel:0096271234567');">Call Now</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          ): null
+        }
+        </div>
+        </div>
 
-            </div>
-            </div>
-            </div>
-
+          </div>
        </main>
-      )
-    }
-}
+      )}
 
-export default Consultation
+export default Consultaion
