@@ -32,7 +32,11 @@ p {
 .header-pic {
   background-image: url("../img/header-pic.jpg");
   background-position: center;
-  min-height: 350px;
+  min-height: 600px;
+}
+
+.centerText {
+  margin-top:30%
 }
 
 /* For orange rectangle with overlay above*/

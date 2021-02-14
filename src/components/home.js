@@ -17,7 +17,7 @@ class Home extends Component {
 <main className="pt-5">
 <div className="bg-cover text-dark header-pic">
     <div className="container py-5 mt-4 text-center">
-        <h1 className="display-4 mt-5 font-weight-bold">TrusTk Car Vehicle..</h1>
+        <h1 className="display-4  centerText">TrusTk License Car..</h1>
         <p className="font-italic mb-5 text-light">Your Trusted road to license your car in your home. </p>
         <a href="booking" className="btn publicBgColor px-5">Reserve Now</a>
     </div>
