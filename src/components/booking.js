@@ -1,5 +1,5 @@
 import react, {Component} from 'react'
-import {Alert} from 'react-bootstrap'
+import {Alert,Button} from 'react-bootstrap'
 import axios from 'axios'
 
 
@@ -13,8 +13,8 @@ import axios from 'axios'
                     Phone:'',
                     Datetime:'',
                     Location:'',
-                //    NameValidationClass:'',
-                  //  NameValidationErr:''
+                    NameValidationClass:'',
+                    NameValidationErr:'',
                     }
     }
 
@@ -23,22 +23,21 @@ import axios from 'axios'
   }
 
 validateForm = () => {
+
     let allData = true
-    //
-    // if(this.state.Name.length == 0) {
-    //   console.log("must enter your name");
-    //   this.setState({NameValidationErr: 'Please Enter Your Name', NameValidationClass:'danger'})
-    //   allData= false
-    // }
-    // else {
-    //   this.setState({NameValidationErr: 'Name is good',  NameValidationClass:'primary'})
-    //   console.log("all data good");
-    // }
+
+    if(this.state.Name.length == 0) {
+      this.setState({NameValidationErr: 'Field Required *', NameValidationClass:'danger'})
+      allData= false
+    }
+    else {
+      this.setState({NameValidationErr: '', NameValidationClass:''})
+      console.log("all data good");
+    }
     return allData
 }
 
     submitForm = (event) => {
-      event.preventDefault()
       if(this.validateForm()) {
 
         axios.post('http://localhost:4000/booking', this.state)
@@ -71,16 +70,13 @@ validateForm = () => {
     									<div className="form-group">
     										<span className="form-label">Your Full Name</span>
     										<input className="form-control" type="text" name="Name" value={this.state.Name} onChange={this.formHandler} required/>
-                  {/*      <Alert key='NameValidation' variant={this.state.NameValidationClass}>{this.state.NameValidationErr}</Alert>
-                                                                                                                                          */}
+                         <Alert key='NameValidation' variant={this.state.NameValidationClass}>{this.state.NameValidationErr}</Alert>
     									</div>
     								</div>
     								<div className="col-md-6">
     									<div className="form-group">
     										<span className="form-label">Your Email</span>
     										<input className="form-control" type="email" name="Email" onChange={this.formHandler} required/>
-                        {/*      <Alert key='NameValidation' variant={this.state.NameValidationClass}>{this.state.NameValidationErr}</Alert>
-                                                                                                                                                */}
     									</div>
     								</div>
     							</div>
@@ -89,8 +85,6 @@ validateForm = () => {
     									<div className="form-group">
     										<span className="form-label">Your Phone</span>
     										<input className="form-control" type="text" name="Phone" onChange={this.formHandler} required/>
-                        {/*      <Alert key='NameValidation' variant={this.state.NameValidationClass}>{this.state.NameValidationErr}</Alert>
-                                                                                                                                                */}
     										<span className="select-arrow"></span>
     									</div>
     								</div>
@@ -98,8 +92,7 @@ validateForm = () => {
     									<div className="form-group">
     										<span className="form-label">Location</span>
     										<input className="form-control" type="text" name="Location" onChange={this.formHandler} required/>
-                        {/*      <Alert key='NameValidation' variant={this.state.NameValidationClass}>{this.state.NameValidationErr}</Alert>
-                                                                                                                                                */}
+
     										<span className="select-arrow"></span>
     									</div>
     								</div>
@@ -107,8 +100,7 @@ validateForm = () => {
     									<div className="form-group">
     										<span className="form-label">Date and Time</span>
     											<input className="form-control" type="Date" name="Datetime" onChange={this.formHandler} required/>
-                          {/*      <Alert key='NameValidation' variant={this.state.NameValidationClass}>{this.state.NameValidationErr}</Alert>
-                                                                                                                                                  */}
+
     										<span className="select-arrow"></span>
     									</div>
     								</div>

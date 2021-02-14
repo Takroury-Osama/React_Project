@@ -25,7 +25,7 @@ const Footer = (props) => {
           <h5 className="mb-4 mt-3 text-center pr-lg-5">Partnership & Agents</h5>
           <div className="row">
           <div className="col-md-2"> </div>
-            <div className="col-md-4">
+            <div className="col-sm-6 col-md-4">
               <ul className="list-unstyled">
                 <li className="mb-2">
                   <h6 className="mb-1"> <a className="reset-anchor publicOrangeColor" href="#">T. Gargour</a></h6>
@@ -37,7 +37,7 @@ const Footer = (props) => {
                 </li>
               </ul>
             </div>
-            <div className="col-md-6">
+            <div className="col-sm-6">
               <ul className="list-unstyled">
                 <li className="mb-2">
                   <h6 className="mb-1"> <a className="reset-anchor publicOrangeColor" href="#">Abo-Haikal</a></h6>
