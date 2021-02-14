@@ -1,6 +1,5 @@
 import react, {useState} from 'react'
 import {Navbar, Nav, NavDropdown} from 'react-bootstrap'
-//import image from '../img/Free_Sample.jfif'
 
 
 import {
@@ -15,9 +14,7 @@ const Header = (props) => {
   return (
     <div>
   <Navbar className="darkColor fixedUp" collapseOnSelect expand="lg" bg="dark" variant="dark">
-  {
-    //  }  <Navbar.Brand href="home"><img src={image} /></Navbar.Brand>
-  }
+    <Navbar.Brand href="home">TrusTk Company</Navbar.Brand>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto">

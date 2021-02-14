@@ -69,7 +69,7 @@ validateForm = () => {
                     </ul>
                   </div>
                   <div className="col-lg-7">
-                    <form action="#">
+                    <form action="mailto:osama-tak@hotmail.com" method="get" enctype="text/plain" >
                       <div className="row">
                         <div className="form-group col-lg-6">
                           <input className="form-control" type="text" name="Fullname" placeholder="Full name" onChange={this.formHandler} required/>
